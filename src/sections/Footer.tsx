@@ -3,67 +3,66 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-export function Footer() {
+export const Footer: React.FC = () => {
   return (
-    <footer className="bg-neutral-950 text-white py-16 border-t border-white/5">
-      <div className="max-w-6xl mx-auto px-6 text-center">
+    <footer className="w-full bg-black text-white py-16">
+      <div className="max-w-7xl mx-auto px-6 md:px-10">
         
-        {/* Name */}
-        <motion.h3
-          initial={{ opacity: 0, y: 10 }}
+        {/* Top Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-2xl font-semibold"
+          className="flex flex-col md:flex-row justify-between items-start gap-10 md:gap-0"
         >
-          Leeroy (Thobelikhaya) Mpofu
-        </motion.h3>
+          {/* Branding */}
+          <div>
+            <h3 className="text-2xl font-semibold tracking-tight">Leeroy Mpofu</h3>
+            <p className="text-sm text-gray-400 max-w-xs mt-2 leading-relaxed">
+              Peer Educator • TB Champion • SRHR Defender • Future Social Scientist.
+            </p>
+          </div>
 
-        {/* Tagline */}
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          viewport={{ once: true }}
-          className="text-white/60 mt-3 mb-10 max-w-xl mx-auto leading-relaxed"
-        >
-          Youth Leader • Public Health Advocate • SRHR Champion •  
-          Driving community empowerment and evidence-based health solutions.
-        </motion.p>
+          {/* Navigation */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+            <div>
+              <h4 className="text-sm font-semibold mb-3 uppercase tracking-wide text-gray-300">Explore</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li><Link href="#about" className="hover:text-white transition">About</Link></li>
+                <li><Link href="#impact" className="hover:text-white transition">Impact</Link></li>
+                <li><Link href="#achievements" className="hover:text-white transition">Achievements</Link></li>
+                <li><Link href="#experience" className="hover:text-white transition">Experience</Link></li>
+              </ul>
+            </div>
 
-        {/* Navigation */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-6 text-sm text-white/70 mb-12"
-        >
-          <Link href="#hero" className="hover:text-white transition">Home</Link>
-          <Link href="#about" className="hover:text-white transition">About</Link>
-          <Link href="#impact" className="hover:text-white transition">Impact</Link>
-          <Link href="#achievements" className="hover:text-white transition">Achievements</Link>
-          <Link href="#experience" className="hover:text-white transition">Experience</Link>
-          <Link href="#education" className="hover:text-white transition">Education</Link>
-          <Link href="#gallery" className="hover:text-white transition">Gallery</Link>
-          <Link href="#testimonials" className="hover:text-white transition">Testimonials</Link>
-          <Link href="#contact" className="hover:text-white transition">Contact</Link>
+            <div>
+              <h4 className="text-sm font-semibold mb-3 uppercase tracking-wide text-gray-300">Resources</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li><Link href="#education" className="hover:text-white transition">Education</Link></li>
+                <li><Link href="#gallery" className="hover:text-white transition">Gallery</Link></li>
+                <li><Link href="#testimonials" className="hover:text-white transition">Testimonials</Link></li>
+                <li><Link href="#contact" className="hover:text-white transition">Contact</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-sm font-semibold mb-3 uppercase tracking-wide text-gray-300">Connect</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li><a href="mailto:leeroy@gmail.com" className="hover:text-white transition">Email</a></li>
+                <li><a href="#" className="hover:text-white transition">LinkedIn</a></li>
+                <li><a href="#" className="hover:text-white transition">Twitter</a></li>
+                <li><a href="#" className="hover:text-white transition">Instagram</a></li>
+              </ul>
+            </div>
+          </div>
         </motion.div>
 
         {/* Divider */}
-        <div className="w-full h-px bg-white/10 mb-8"></div>
-
-        {/* Copyright */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="text-xs text-white/40"
-        >
-          © {new Date().getFullYear()} Leeroy Mpofu — All Rights Reserved.
-        </motion.p>
+        <div className="border-t border-white/10 mt-14 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+          <p>© {new Date().getFullYear()} Leeroy Mpofu. All rights reserved.</p>
+          <p className="mt-4 md:mt-0">Crafted with precision and purpose.</p>
+        </div>
       </div>
     </footer>
   );
-}
+};
